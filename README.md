@@ -39,13 +39,13 @@ Construido en **Angular 20** con componentes standalone:
 
 El proyecto usa **H2 en memoria** y precarga usuarios y préstamos de ejemplo al arrancar mediante `DataInitializer`:
 
-* **Consola H2:** `http://localhost:8080/h2-console` *(usar el JDBC URL configurado en `application.properties`)*
+* **Consola H2:** `http://localhost:8080/h2-console` *(usar el JDBC URL configurado en `application.properties` -> jdbc:h2:mem:loansdb )*
 * **Swagger UI:** `http://localhost:8080/swagger-ui.html`
 
-| Rol | Email | Contraseña |
-| :--- | :--- | :--- |
-| Usuario | `usuario@test.com` | `123` |
-| Administrador | `admin@test.com` | `123` |
+| Rol           | Email              | Contraseña |
+| :---          | :---               | :---       |
+| Usuario       | `usuario@test.com` | `123`      |
+| Administrador | `admin@test.com`   | `123`      |
 
 ---
 
@@ -90,6 +90,6 @@ Desde la carpeta `loans-frontend`:
    ```
 2. Levantar el servidor local:
    ```bash
-   ng serve
+   ng serve -o
    ```
 3. Abrir en el navegador: `http://localhost:4200`
