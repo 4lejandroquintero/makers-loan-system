@@ -1,0 +1,4 @@
+package com.makers.loans_backend.domain.model;
+
+public enum Role {
+}
