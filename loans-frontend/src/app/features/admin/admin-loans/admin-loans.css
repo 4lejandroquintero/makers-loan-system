@@ -1,0 +1,22 @@
+.admin-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.loan-info {
+  font-size: 0.95rem;
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}

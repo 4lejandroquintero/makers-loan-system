@@ -1,0 +1,31 @@
+<div class="page-container">
+  <header class="header">
+    <h1>Hola, {{ adminName }}</h1>
+    <button class="btn btn-dark" (click)="logout()">Cerrar Sesión</button>
+  </header>
+
+  <section class="card">
+    <h2>Gestionar Solicitudes de Préstamos</h2>
+
+    @if (loans$ | async; as loans) {
+      <div class="admin-list">
+        @for (loan of loans; track loan.id) {
+          <div class="admin-item">
+            <p class="loan-info">
+              Usuario: <strong>{{ loan.userEmail }}</strong> -
+              Monto: <strong>${{ loan.amount }}</strong> ({{ loan.termMonths }} meses) -
+              Estado: <strong>{{ translateStatus(loan.status) }}</strong>
+            </p>
+
+            @if (loan.status === 'PENDING') {
+              <div class="actions">
+                <button class="btn btn-dark" (click)="approve(loan.id)">Aprobar</button>
+                <button class="btn btn-danger" (click)="reject(loan.id)">Rechazar</button>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    }
+  </section>
+</div>
