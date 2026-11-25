@@ -33,3 +33,7 @@
 - **Transaccionalidad (`@Transactional`):** Aplicada en la aprobación y rechazo de préstamos para garantizar consistencia ante fallos.
 - **Manejo global de errores:** `GlobalExceptionHandler` centralizado devolviendo códigos HTTP semánticos (`400`, `401`, `403`, `404`) consumidos en Angular.
 - **Estado y formularios en Angular:** Se usa `AuthService` (manejo reactivo con RxJS/Signals) en lugar de NgRx para no sobre-ingenierizar el MVP, junto con `ReactiveFormsModule` para validar entradas.
+
+## 5. Decisiones de Arquitectura (Backend)
+- **Dominio puro (Hexagonal):** `domain/` no usa anotaciones de Spring ni JPA para desacoplar las reglas de negocio (como aprobar/rechazar solo préstamos `PENDING`) de la base de datos.
+- **Spring Web MVC + JPA sobre H2:** La prueba permite usar WebFlux solo donde lo amerite [4]; como JPA sobre H2 es bloqueante y transaccional, usar Web MVC evita bloquear el event loop reactivo.
