@@ -1,4 +1,7 @@
 package com.makers.loans_backend.domain.model;
 
 public enum LoanStatus {
+    PENDING,
+    APPROVED,
+    REJECTED
 }
